@@ -1,0 +1,27 @@
+language: generic
+
+# https://docs.travis-ci.com/user/customizing-the-build#The-Build-Lifecycle
+matrix:
+  include:
+    - os: linux
+      sudo: false
+      env: NODE="4" TARGET=Release CC="clang-3.8" CXX="clang++-3.8" PUBLISHABLE=true
+      before_install:
+        - echo "before_install"
+        - source ./scripts/travis_helper.sh
+        - echo ${DOES_NOT_EXIST}
+      install:
+        - echo "install"
+        - echo ${DOES_NOT_EXIST}
+      before_script:
+        - echo "before_script"
+        - echo ${DOES_NOT_EXIST}
+      script:
+        - echo "script"
+        - echo ${DOES_NOT_EXIST}
+      after_success:
+        - echo "after_success"
+        - echo ${DOES_NOT_EXIST}
+      after_failure:
+        - echo "after_failure"
+        - echo ${DOES_NOT_EXIST}
